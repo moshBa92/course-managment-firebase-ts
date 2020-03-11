@@ -1,0 +1,11 @@
+div.myStyle {
+    font-weight: bold;
+  }
+  h4.myH4Style {
+    cursor: pointer;
+    color: wheat;
+  }
+  .transparent {
+    background-color: transparent;
+  }
+  

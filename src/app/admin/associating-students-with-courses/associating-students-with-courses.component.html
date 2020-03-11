@@ -1,0 +1,41 @@
+<div class="container mx-auto" style="height: 100%; min-height: 100%;">
+  <h1 class=" text-primary">
+    Choose the course where you want to make a change in the affiliation of the
+    students :
+  </h1>
+  <ul class="list-group">
+    <li
+      *ngFor="let course of courses; let i = index"
+      class="list-group-item transparent"
+    >
+      <div
+        style="cursor: pointer;"
+        [routerLink]="[]"
+        routerLinkActive="active"
+        class="list-group-item clearfix"
+        style="background-color: gray;"
+      >
+        <div class="pull-left">
+          <h4
+            class="list-group-item-heading myH4Style"
+            (click)="onAssociatingStudentsWithCourseLoad(course.courseNum)"
+          >
+            {{ course.name }}
+          </h4>
+          <div class="list-group-item-text myStyle">
+            Course number : {{ course.courseNum }}
+          </div>
+          <div class="list-group-item-text myStyle">
+            Start date : {{ course.startDate | date: "fullDate" }}
+          </div>
+          <div class="list-group-item-text myStyle">
+            Weekly sessions : {{ course.weeklySessions }}
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>
+
+

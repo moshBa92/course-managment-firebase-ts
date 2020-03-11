@@ -1,0 +1,26 @@
+<div class="container mx-auto" style="height: 100%; min-height: 100%;">
+  <h1 class=" text-primary">
+    Click to Add Stutents :
+  </h1>
+  <h3 class="text-danger">Existing Student :</h3>
+  <ul class="list-group ">
+    <li
+      class="list-group-item list-course-student"
+      *ngFor="let studentDetail of courseStudentsDetails;"
+    >
+      <div>{{ studentDetail.studentId }} : ({{ studentDetail.studentName }})</div>
+    </li>
+  </ul>
+  <hr />
+  <h3 class="text-success">Add Student :</h3>
+  <ul class="list-group">
+    <li
+      class="list-group-item list-course-student "
+      style="cursor: pointer;"
+      *ngFor="let student of restOfTheStudents; let i = index"
+      (click)="onAssociatingStudentsWithCourse(student)" >
+      <div>{{ student.name }} : ({{ student.id }})</div>
+    </li>
+  </ul>
+</div>
+

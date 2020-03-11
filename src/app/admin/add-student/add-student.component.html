@@ -1,0 +1,73 @@
+<div class="container">
+  <h1>Add new student to the system :</h1>
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="studentPersonalData">
+      <div class="form-group student-personal">
+        <label for="name">Student name</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control"
+        />
+        <hr />
+      </div>
+      <div class="form-group student-personal">
+        <label for="id">Student ID</label>
+        <input
+          type="number"
+          id="id"
+          formControlName="id"
+          class="form-control"
+          placeholder="Exactly 9 digits"
+        />
+        <hr />
+      </div>
+      <div class="form-group student-personal">
+        <label for="city">City</label>
+        <input
+          type="text"
+          id="city"
+          formControlName="city"
+          class="form-control"
+        />
+        <hr />
+      </div>
+      <div class="form-group student-personal">
+        <label for="phoneNumber">Phone number</label>
+        <input
+          type="number"
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          class="form-control"
+          placeholder="Exactly 10 digits"
+        />
+        <hr />
+      </div>
+    </div>
+    <div formGroupName="studentUserData">
+      <div class="form-group student-user">
+        <label for="userName">THe Email will be the "ID+@gmail.com"</label>
+        <hr />
+      </div>
+      <div class="form-group student-user">
+        <label for="password">Student first password</label>
+        <input
+          type="text"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="At least 6 characters"
+        />
+        <hr />
+      </div>
+    </div>
+    <button
+      [disabled]="!studentForm.valid"
+      class="btn btn-primary"
+      type="submit"
+    >
+      Add Student
+    </button>
+  </form>
+</div>

@@ -1,0 +1,53 @@
+<div class="col-xs-12 col-md-6 col-md-offset-3">
+  <h2>Add attendant:</h2>
+  <form #attendantForm="ngForm" (ngSubmit)="onSubmit(attendantForm)">
+    <div class="form-group">
+      <h5 for="date bold-font">Date:</h5>
+      <input
+        type="date"
+        class="form-control bold-font"
+        id="date"
+        ngModel
+        name="date"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <h5>The student was in class?</h5>
+      <div class="form-check">
+        <label class="form-check-label bold-font">
+          <input
+            type="radio"
+            class="form-check-input"
+            name="isAttendant"
+            id="isAttendant"
+            value="true"
+            ngModel
+            required
+          />YES
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label bold-font">
+          <input
+            type="radio"
+            class="form-check-input"
+            name="isAttendant"
+            id="isAttendant"
+            value="false"
+            ngModel
+          />NO
+        </label>
+      </div>
+    </div>
+    <div>
+      <button
+        [disabled]="!attendantForm.valid"
+        class="btn btn-primary"
+        type="submit"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+</div>

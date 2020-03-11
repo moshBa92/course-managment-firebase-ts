@@ -1,0 +1,17 @@
+.center {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+.text-seagreen{
+  color: seagreen;
+}
+.transparent{
+  background-color: transparent;
+}
+.students-back{
+  background-color: transparent;
+  font-weight: bold;
+  color: seagreen;
+}

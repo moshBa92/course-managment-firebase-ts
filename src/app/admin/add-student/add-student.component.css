@@ -1,0 +1,11 @@
+.student-personal {
+  font-weight: bold;
+  color: blue;
+}
+.student-user {
+  font-weight: bold;
+  color: red;
+}
+input {
+  font-weight: bold;
+}

@@ -1,0 +1,126 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="/">Mosh University</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarNavDropdown" class="navbar-collapse collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" routerLinkActive="active">
+        <a class="nav-link" routerLink="course/course-list">Course List</a>
+      </li>
+      <li
+        *ngIf="isAdminLogIn"
+        class="nav-item dropdown"
+        routerLinkActive="active"
+      >
+        <a
+          class="nav-link dropdown-toggle"
+          href="http://example.com"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          hellow Admin !
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/admin/add-course">Add Course</a>
+          <a class="dropdown-item" routerLink="/admin/add-student"
+            >Add Student</a
+          >
+          <a
+            class="dropdown-item"
+            routerLink="/admin/associating-students-with-courses"
+            >Associating students with courses</a
+          >
+          <a class="dropdown-item" routerLink="/admin/add-students-attendant"
+            >Add students attendant</a
+          >
+          <a class="dropdown-item" routerLink="/change-password"
+            >Admin change password</a
+          >
+        </div>
+      </li>
+      <li
+        *ngIf="isStudentLogIn"
+        class="nav-item dropdown"
+        routerLinkActive="active"
+      >
+        <a
+          class="nav-link dropdown-toggle"
+          href="http://example.com"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          hellow {{ studentName }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a
+            class="dropdown-item pointer"
+            (click)="onStudentNavigateToAttendancePage()"
+            >attendance</a
+          >
+          <a class="dropdown-item" routerLink="/change-password"
+            >change Password ({{ studentName }})</a
+          >
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li
+        *ngIf="!isStudentLogIn"
+        class="nav-item dropdown"
+        routerLinkActive="active"
+      >
+        <a
+          *ngIf="!isAdminLogIn && !isStudentLogIn"
+          class="nav-link dropdown-toggle"
+          href="http://example.com"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Authentication
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/auth/student">Student Login</a>
+          <hr />
+          <a class="dropdown-item" routerLink="/auth/admin">Admin Login</a>
+        </div>
+      </li>
+      <li
+        *ngIf="isStudentLogIn || isAdminLogIn"
+        class="nav-item active"
+        routerLinkActive="active"
+      >
+        <div
+          *ngIf="isStudentLogIn && !isAdminLogIn"
+          class="nav-link like-anchor"
+          routerLink="/"
+          (click)="onStudentLogout()"
+        >
+          Student-Logout
+        </div>
+        <div
+          *ngIf="!isStudentLogIn && isAdminLogIn"
+          class="nav-link like-anchor"
+          routerLink="/"
+          (click)="onAdminLogout()"
+        >
+          Admin-Logout
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

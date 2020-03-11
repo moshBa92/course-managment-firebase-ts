@@ -1,0 +1,39 @@
+<div *ngIf="showContent">
+  <div class="alert-danger text-center" *ngIf="!attendeceToDisplay">
+    you dont have attendance in this class
+  </div>
+  <ul class="list-group ">
+    <div *ngIf="attendeceToDisplay">
+      <li
+        *ngFor="let atenndance of attendeceToDisplay; let i = index"
+        class="list-group-item active border-list"
+      >
+        <h4 class="list-group-item-heading">
+          {{ atenndance.date | date: "fullDate" }}
+        </h4>
+        <div
+          class="list-group-item-text"
+          *ngIf="atenndance.isAttendant"
+          style="color: greenyellow;"
+        >
+          Did you attend the class? {{ atenndance.isAttendant }}
+        </div>
+        <div
+          class="list-group-item-text"
+          *ngIf="!atenndance.isAttendant"
+          style="color: red;"
+        >
+          Did you attend the class? {{ atenndance.isAttendant }}
+        </div>
+        <div *ngIf="!atenndance.isAttendant">
+          <p>
+            Leave an explanation why you weren't in class?
+          </p>
+          <textarea #explanetion cols="30" rows="2"></textarea>
+          <br>
+          <button class="btn btn-danger " (click)="onExplanationSend(explanetion.value,i)">Send</button>
+        </div>
+      </li>
+    </div>
+  </ul>
+</div>

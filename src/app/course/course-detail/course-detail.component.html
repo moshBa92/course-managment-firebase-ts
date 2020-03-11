@@ -1,0 +1,32 @@
+<div class="container mx-auto" style="height: 100%; min-height: 100%;">
+  <div class="center">
+    <div *ngFor="let course of courseToDisplay">
+      <div class="col-md-8">
+        <div class="thumbnail">
+          <div class="caption">
+            <h1 style="color: black;">{{ course.name }}</h1>
+            <hr />
+            <h4 class="text-seagreen">
+              Course number : {{ course.courseNum }}
+            </h4>
+            <hr />
+            <h4 class="text-seagreen">
+              Start Date : {{ course.startDate | date: "fullDate" }}
+            </h4>
+            <hr />
+            <h4 class="text-seagreen">
+              Weekly sessions : {{ course.weeklySessions }}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <h2>students:</h2>
+    <ul class="list-group" *ngFor="let student of students">
+      <li class="list-group-item students-back">
+        {{ student.studentName }} ({{ student.studentId }})
+      </li>
+    </ul>
+  </div>
+</div>

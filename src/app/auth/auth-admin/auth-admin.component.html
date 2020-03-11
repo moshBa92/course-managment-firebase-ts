@@ -1,0 +1,47 @@
+<h1>Login as a Admin:</h1>
+<hr />
+<div class="alert alert-danger" *ngIf="error">
+  <p>
+    {{ error }}
+  </p>
+</div>
+<div class="alert alert-success" *ngIf="welcomeMessage">
+  <p>
+    {{ welcomeMessage }}
+  </p>
+</div>
+<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+  <div class="form-group">
+    <label for="email">E-Mail</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      ngModel
+      name="email"
+      required
+      email
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      ngModel
+      name="password"
+      required
+      minlength="6"
+    />
+  </div>
+  <div>
+    <button
+      class="btn btn-primary bold-text"
+      type="submit"
+      [disabled]="!authForm.valid"
+    >
+      Login As Admin
+    </button>
+  </div>
+</form>
